@@ -1,0 +1,15 @@
+//Angular
+require('@angular/common');
+require('@angular/animations');
+require('@angular/core');
+require('@angular/forms');
+require('@angular/http');
+require('@angular/platform-browser');
+require('@angular/platform-browser-dynamic');
+require('@angular/router');
+require('rxjs/Observable');
+require('rxjs/Subscription');
+require('rxjs/BehaviorSubject');
+require('rxjs/add/operator/catch');
+require('rxjs/add/operator/map');
+require('rxjs/add/operator/filter');

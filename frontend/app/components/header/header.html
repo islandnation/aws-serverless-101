@@ -1,0 +1,9 @@
+<div class="navbar navbar-dark bg-dark">
+    <div class="container d-flex justify-content-between">
+        <a routerLink="/" class="navbar-brand">ESDA</a>
+        <a routerLink="/cart" class="btn btn-primary">
+            <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+            Shopping Cart ({{ calculateTotalQuantity() }})
+        </a>
+    </div>
+</div>

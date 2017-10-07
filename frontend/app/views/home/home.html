@@ -1,0 +1,28 @@
+<app-header></app-header>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">East’s Scuba Dive Academy</h1>
+    </div>
+</section>
+
+<div class="album text-muted">
+    <div class="container">
+        <div class="alert alert-warning" role="alert" *ngIf="productsError">
+            <strong>Error loading products</strong>
+        </div>
+        <div class="row" *ngIf="!productsError">
+            <div class="card" *ngFor="let product of products;">
+                <img class="card-img-top" alt="{{ product.name }}" src="{{ product.image }}">
+                <div class="card-block">
+                    <p class="card-text float-sm-right">{{product.price | currency:'PHP':true:'4.0' }}</p>
+                    <p class="card-title"><strong>{{ product.name }}</strong></p>
+                    <p class="card-text">{{ product.description }}</p>
+                    <button class="btn btn-success" (click)="addToCart(product)">Add to cart</button>
+                </div>
+            </div>
+        </div>
+    <div>
+</div>
+
+<app-footer></app-footer>

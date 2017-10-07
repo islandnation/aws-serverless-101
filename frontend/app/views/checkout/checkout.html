@@ -1,0 +1,59 @@
+<app-header></app-header>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">East’s Scuba Dive Academy</h1>
+        <h2 class="jumbotron-heading">Checkout</h2>
+    </div>
+</section>
+
+<div class="container" *ngIf="cartService.contents.length > 0">
+    <div class="row">
+        <div class="col-sm-8">
+            <div class="alert alert-warning" role="alert" *ngIf="error">
+                <strong>Error processing order</strong>
+            </div>
+            <form>
+                <div class="form-group">
+                    <label for="emailInput">Email address</label>
+                    <input type="email" id="emailInput" [disabled]="processing" name="email" class="form-control" [(ngModel)]="form.email" placeholder="Enter email">
+                </div>
+                <div class="form-group">
+                    <label for="firstNameInput">First name</label>
+                    <input type="text" id="firstNameInput" [disabled]="processing" name="firstName" class="form-control" [(ngModel)]="form.firstName" placeholder="Enter first name">
+                </div>
+                <div class="form-group">
+                    <label for="lastNameInput">Last name</label>
+                    <input type="text" id="lastNameInput" [disabled]="processing" name="lastName" class="form-control" [(ngModel)]="form.lastName" placeholder="Enter last name">
+                </div>
+                <button (click)="purchase()" [disabled]="processing" class="btn btn-success btn-lg text-right">
+                    <i class="fa fa-shopping-cart" *ngIf="!processing" aria-hidden="true"></i>
+                    <i class="fa fa-refresh fa-spin fa-fw" *ngIf="processing" aria-hidden="true"></i>
+                    Purchase
+                </button>
+            </form>
+        </div>
+        <div class="col-sm-4">
+            <table class="table">
+                <tbody>
+                    <tr *ngFor="let item of cartService.contents;">
+                        <td>{{ item.quantity }}x {{ item.product.name }}</td>
+                        <td class="text-right">{{ item.product.price * item.quantity | currency:'PHP':true:'4.0' }}</td>
+                    </tr>
+                    <tr>
+                        <td class="text-right" colspan="6"><strong>Total {{ calculateTotalPrice() | currency:'PHP':true:'4.0' }}</strong></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+<div class="container" *ngIf="order">
+    <div class="alert alert-success" role="alert">
+        Order placed with order id <strong>{{order.orderId}}</strong> for <strong>{{order.total | currency:'PHP':true:'4.0' }}</strong>
+    </div>
+</div>
+
+
+<app-footer></app-footer>

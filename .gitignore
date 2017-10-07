@@ -1,0 +1,20 @@
+# Logs
+*.log
+npm-debug.log
+node_modules
+
+# Runtime data
+pids
+*.pid
+*.seed
+
+#IDE
+**/.idea
+
+#OS
+.DS_Store
+.tmp
+
+#SERVERLESS
+.serverless
+dist

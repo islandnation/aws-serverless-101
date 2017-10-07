@@ -1,0 +1,50 @@
+<app-header></app-header>
+
+<section class="jumbotron text-center">
+    <div class="container">
+        <h1 class="jumbotron-heading">East’s Scuba Dive Academy</h1>
+        <h2 class="jumbotron-heading">Shopping Cart</h2>
+    </div>
+</section>
+
+<div class="container">
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Quantity</th>
+                <th colspan="2">Product</th>
+                <th>Price</th>
+                <th colspan="2">Total</th>
+            </tr>
+        </thead>
+        <tbody *ngIf="cartService.contents.length > 0">
+            <tr *ngFor="let item of cartService.contents;">
+                <td>{{ item.quantity }}</td>
+                <td>
+                    <img style="width: 80px;" src="{{ item.product.image }}" alt="{{ item.product.name }}" />
+                </td>
+                <td>{{ item.product.name }}</td>
+                <td>{{ item.product.price | currency:'PHP':true:'4.0' }}</td>
+                <td>{{ item.product.price * item.quantity | currency:'PHP':true:'4.0' }}</td>
+                <td class="text-right">
+                    <button (click)="removeItem(item)" class="btn btn-danger btn-sm float-right">
+                        <i class="fa fa-minus-circle" aria-hidden="true"></i> Remove</button>
+                </td>
+            </tr>
+            <tr>
+                <td class="text-right" colspan="6"><strong>Total {{ calculateTotalPrice() | currency:'PHP':true:'4.0' }}</strong></td>
+            </tr>
+        </tbody>
+        <tbody>
+            <tr *ngIf="cartService.contents.length === 0">
+                <td colspan="6" class="text-center"><strong>Your cart is empty, <a routerLink="/">continue shopping</a></strong></td>
+            </tr>
+        </tbody>
+    </table>
+
+    <a routerLink="/checkout" class="btn btn-success btn-lg">
+        <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+        Checkout
+    </a>
+
+<app-footer></app-footer>

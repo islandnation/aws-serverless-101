@@ -1,0 +1,18 @@
+{
+  "compileOnSave": false,
+  "compilerOptions": {
+    "declaration": false,
+    "emitDecoratorMetadata": true,
+    "experimentalDecorators": true,
+    "lib": ["dom", "es6"],
+    "module": "commonjs",
+    "noEmitOnError": true,
+    "noImplicitAny": false,
+    "suppressImplicitAnyIndexErrors": true,
+    "rootDir": ".",
+    "sourceMap": true,
+    "removeComments": true,
+    "target": "es5",
+    "inlineSources": true
+  }
+}
