@@ -12,6 +12,7 @@
     "serverless-offline": "^3.16.0"
   },
   "dependencies": {
+    "awssdk": "^1.0.1",
     "shortid": "^2.2.8"
   }
 }
