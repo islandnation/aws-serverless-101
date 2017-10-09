@@ -1,3 +1,5 @@
+'use strict';
+
 //Lambda Function Returns Product List For Products To Purchase
 const products = require('./catalog').products;
 

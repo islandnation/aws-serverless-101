@@ -1,3 +1,5 @@
+'use strict';
+
 //Lambda Function Processes Orders And Persists Them To DynamoDB
 const aws = require('aws-sdk');
 const shortid = require('shortid');
